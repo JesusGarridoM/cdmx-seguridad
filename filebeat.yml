@@ -2,7 +2,7 @@ filebeat.inputs:
 - type: filestream
   id: default-filestream
   paths:
-   - ${DATA_PATH}
+   - ./data/*.csv
 
 output.elasticsearch:
  hosts: ${ELASTIC_HOSTS}
