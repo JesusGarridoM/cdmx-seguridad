@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  filebeat01:
+    image: docker.elastic.co/beats/filebeat:${STACK_VERSION}
+    user: root
+    volumes:
+      - ${CERT_PATH}:/usr/share/filebeat/certs
+      - filebeatdata01:/usr/share/filebeat/data
+      - "./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
+      - "./data/:/usr/share/filebeat/data/:ro"
+    environment:
+      - ELASTIC_USER=elastic
+      - ELASTIC_PASSWORD=${ELASTIC_PASSWORD}
+      - ELASTIC_HOSTS=https://es01:9200
+      - KIBANA_HOSTS=http://kibana:5601
+      - LOGSTASH_HOSTS=http://logstash01:9600
+  downloader:
+    build: .
+    volumes:
+      - ./data:/data
+
+volumes:
+  filebeatdata01:
+    driver: local
+
+networks:
+  default:
+    name: elastic
+    external: false
