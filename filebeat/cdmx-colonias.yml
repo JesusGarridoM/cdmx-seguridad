@@ -1,0 +1,12 @@
+filebeat.inputs:
+- type: filestream
+  id: cdmx-colonias
+  paths:
+   - ./data/*.geojson
+
+output.elasticsearch:
+ hosts: ${ELASTIC_HOSTS}
+ username: ${ELASTIC_USER}
+ password: ${ELASTIC_PASSWORD}
+ ssl.enabled: true
+ ssl.certificate_authorities: "certs/ca/ca.crt"

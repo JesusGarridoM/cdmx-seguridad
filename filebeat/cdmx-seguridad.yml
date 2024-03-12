@@ -1,0 +1,8 @@
+filebeat.inputs:
+- type: filestream
+  id: cdmx-seguridad
+  paths:
+   - ./data/*.csv
+
+output.logstash:
+ hosts: ["logstash01:5044"]

@@ -1,13 +1,21 @@
 version: "3.8"
 
 services:
-  filebeat01:
+  filebeat-cdmx-seguridad:
     image: docker.elastic.co/beats/filebeat:${STACK_VERSION}
     user: root
     volumes:
       - ${CERT_PATH}:/usr/share/filebeat/certs
-      - filebeatdata01:/usr/share/filebeat/data
-      - "./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro"
+      - filebeatdata-cdmx-seguridad:/usr/share/filebeat/data
+      - "./filebeat/cdmx-seguridad.yml:/usr/share/filebeat/filebeat.yml:ro"
+      - "./data/:/usr/share/filebeat/data/:ro"
+  filebeat-cdmx-colonias:
+    image: docker.elastic.co/beats/filebeat:${STACK_VERSION}
+    user: root
+    volumes:
+      - ${CERT_PATH}:/usr/share/filebeat/certs
+      - filebeatdata-cdmx-colonias:/usr/share/filebeat/data
+      - "./filebeat/cdmx-colonias.yml:/usr/share/filebeat/filebeat.yml:ro"
       - "./data/:/usr/share/filebeat/data/:ro"
     environment:
       - ELASTIC_USER=elastic
@@ -20,7 +28,9 @@ services:
       - ./data:/data
 
 volumes:
-  filebeatdata01:
+  filebeatdata-cdmx-seguridad:
+    driver: local
+  filebeatdata-cdmx-colonias:
     driver: local
 
 networks:
