@@ -1,0 +1,4 @@
+
+
+- pipeline.id: cdmx-seguridad
+  path.config: "/usr/share/logstash/pipeline/cdmx-seguridad"

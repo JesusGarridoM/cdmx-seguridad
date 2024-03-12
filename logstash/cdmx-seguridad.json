@@ -1,0 +1,20 @@
+{
+  "index_patterns": ["cdmx-seguridad-*"],
+  "priority": 500,
+  "template": {
+    "mappings": {
+      "properties": {
+        "alcaldia_catalogo": { "type": "text" },
+        "calidad_juridica": { "type": "text" },
+        "categoria_delito": { "type": "text" },
+        "colonia_catalogo": { "type": "text" },
+        "competencia": { "type": "text" },
+        "delito": { "type": "text" },
+        "municipio_hecho": { "type": "text" },
+        "sexo": { "type": "keyword" },
+        "tipo_persona": { "type": "keyword" },
+        "location": { "type": "geo_point" }
+      }
+    }
+  }
+}
