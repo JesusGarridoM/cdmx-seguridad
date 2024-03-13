@@ -24,7 +24,7 @@ def download_file(url, file_name):
 
 # Descargar archivo de victimas
 url = "https://archivo.datos.cdmx.gob.mx/FGJ/victimas/victimasFGJ_acumulado_2024_01.csv"
-file_name = "/data/victimasFGJ_acumulado_2024_01.csv"
+file_name = "/data/cdmx-seguridad/victimasFGJ_acumulado_2024_01.csv"
 
 try:
     download_file(url, file_name)
@@ -33,7 +33,7 @@ except RuntimeError as error:
 
 # Descargar catalogo de colonias
 url = "https://datos.cdmx.gob.mx/dataset/02c6ce99-dbd8-47d8-aee1-ae885a12bb2f/resource/026b42d3-a609-44c7-a83d-22b2150caffc/download/catlogo-de-colonias.json"
-file_name = "/data/catlogo-de-colonias.geojson"
+file_name = "/data/cdmx-colonias/catalogo-de-colonias.geojson"
 
 try:
     download_file(url, file_name)
