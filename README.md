@@ -5,8 +5,8 @@ O asegurate de introducir la ruta del certificado `CERT_PATH` en el `.env`
 
 Cambia el usuario de `filebeat.yml`a root
 ```
-sudo chown root:root filebeat.yml 
-sudo chmod go-w filebeat.yml 
+sudo chown root:root filebeat/*
+sudo chmod go-w filebeat/*
 ```
 
 Copia las configuraciones de logstash a la carpeta de tu cluster
