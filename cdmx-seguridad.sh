@@ -23,7 +23,7 @@ if [ $? -eq 0 ]
           then
             echo 'Exportando configuracion a logstash...'
             cp logstash/cdmx-seguridad.conf ../elk-sandbox/logstash/pipeline/
-            cp logstash/cdmx-seguridad.json ../elk-sandbox/logstash/templates/
+            sudo cp logstash/cdmx-seguridad.json ../elk-sandbox/logstash/templates/
             cat logstash/pipelines.yml > ../elk-sandbox/logstash/config/pipelines.yml
             echo 'Reiniciando logstash...'
             docker restart elk-sandbox-logstash01-1 &
